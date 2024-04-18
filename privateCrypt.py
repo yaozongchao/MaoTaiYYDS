@@ -1,6 +1,6 @@
 import base64
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad, unpad
+from Cryptodome.Cipher import AES
+from Cryptodome.Util.Padding import pad, unpad
 from hashlib import sha256
 import config
 import logging
