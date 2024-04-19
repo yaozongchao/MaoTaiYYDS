@@ -1,11 +1,16 @@
-from datetime import time
+from datetime import timedelta
 from celery.schedules import crontab
 
-CELERY_TIMEZONE = 'Asia/Shanghai'
-CELERY_TIMEZONE_UTC = False
-CELERYBEAT_SCHEDULE = {
-    'execute-my-task-every-day-at-09-00-05-am': {
-        'task': 'tasks.repeat_task',
-        'schedule': crontab(hour=9, minute=0, second=5),
+broker_url = 'redis://localhost:6379/0'
+result_backend = 'redis://localhost:6379/1'
+
+timezone = 'Asia/Shanghai'
+enable_utc = False
+
+beat_schedule = {
+    'imaotai_task': {
+        'task': 'celery_app.imaotai_task',
+        'schedule': crontab(minute=20, hour=9),
+        'args': (),
     },
 }
