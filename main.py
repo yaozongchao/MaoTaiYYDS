@@ -1,3 +1,5 @@
+# schedule: 0 0/5 * * * *
+
 import datetime
 import logging
 import sys
